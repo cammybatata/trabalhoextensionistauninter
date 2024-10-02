@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pagina Inicial</title>
+
+    <style>
+        body {
+            font-family: sans-serif;
+            background-color: rgb(249, 224, 227);
+            margin: 0; /* Remove margens padrão do body */
+            padding: 0; /* Remove preenchimento padrão do body */
+        }
+
+        .topo {
+            width: 100%;
+            height: 60px;   
+            border: 1px solid rgb(148, 16, 16); 
+            margin: 0;
+            padding: 0;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background-color: rgb(134, 18, 18);
+        }
+
+        ul li {
+            float: left;
+            color: aliceblue;
+            list-style-type: none;
+        }
+
+        ul li {
+            border: 1px solid rgb(134, 18, 18);
+        }
+
+        .menu {
+            width: 33%;
+            padding-top: 5px;
+        }
+
+        .menu a {
+            height: 80px;
+            border: 1px solid white;
+            font-size: large;
+            justify-items: center;
+            text-align: center;
+        }
+
+        .menu a:hover {
+            background: rgb(136, 39, 39);
+            font-weight: bolder;
+        }
+
+        .valorizart {
+            width: 33%;
+            font-size: 30px;
+            text-align: center;
+            padding-top: 15px;
+            color: white;
+        }
+
+        .logo {
+            width: 33%;
+            text-align: end;
+            padding-top: 5px;
+        }
+
+        .barras {
+            width: 45px;
+        }
+        .gode {
+            position: fixed;
+            top: 25px;
+            left: 53.4%;
+            width: 40px;
+        }
+        .l {
+            width: 45px;
+            border-radius: 50%;
+        }
+
+        .dropdown-menu {
+            position: relative;
+            top: 5px;
+            border: 1px solid rgb(255, 255, 255);
+            background-color: rgb(134, 18, 18);
+            box-shadow: 0 0 2px black;
+            display: none;
+        }
+
+        .dropdown-menu a {
+            display: block;
+            color: white;
+        }
+
+        .menu:hover .dropdown-menu {
+            display: block;
+        }
+
+        .head {
+            width: 100%;
+            height: 100px;
+            margin: 0px;
+            padding-left: 0px;
+            border: 1px solid rgb(255, 255, 255);
+            border-radius: 10px;
+            color: white;
+            font-family: sans-serif;
+            font-size: large;
+            text-align: center;
+            background-color: rgb(167, 71, 84);
+        }
+
+        .forms {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 50px;
+            box-shadow: 1px 1px 4px black;
+        }
+
+        label {
+            display: block;
+            margin: 10px 0 5px;
+        }
+
+        input, button {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .result {
+            margin-top: 20px;
+            font-weight: bold;
+            padding: 15px;
+            border: 1px solid rgb(252, 184, 192);
+            border-radius: 8px; 
+            background-color: rgb(252, 184, 192); 
+            color: rgb(167, 71, 84);
+            text-align: center; 
+            font-size: 30px; 
+        }
+
+    </style>
+</head>
+<body>
+
+    <ul class="topo">
+        <li class="menu">
+            <img class="barras" src="zbotãomenu.png">
+            <div class="dropdown-menu">
+                <a href="index.html">Inicio</a>
+                <a href="b.html">Desvalorização e a Inteligencia Artificial </a>
+                <a href="c.html">O eu posso cobrar?</a>
+                <a href="d.html">Precificador</a>
+            </div>
+        </li>
+        <li class="valorizart">ValorizArt</li>
+        <img class="gode" src="ygode.png.png">
+    </ul>
+
+    <br><br>
+    <div class="head">
+        <h1>Precificador</h1>
+    </div>
+
+    <br><br>
+    <div class="forms">
+        <form id="formularioPreco">
+            <label for="horas">Quantas horas você gastou/irá gastar no serviço:</label>
+            <input type="number" id="horas" name="horas" required>
+
+            <label for="valorHora">Quanto você quer ganhar por hora (R$):</label>
+            <input type="number" id="valorHora" name="valorHora" required>
+
+            <label for="material">Custo do material (R$):</label>
+            <input type="number" id="material" name="material" required>
+
+            <label for="frete">Frete (opcional) (R$):</label>
+            <input type="number" id="frete" name="frete">
+
+            <label for="lucro">Qual a porcentagem de lucro você quer ter (%):</label>
+            <input type="number" id="lucro" name="lucro" required>
+
+            <button type="button" onclick="calcularPrecoVenda()">Calcular Preço de Venda</button>
+        </form>
+
+        <div class="result" id="resultado"> </div>
+    </div>
+    <script>
+        function obterValor(id) {
+            let valor = document.getElementById(id).value;
+            return valor ? parseFloat(valor) : 0;
+        }
+
+        function calcularPrecoVenda() {
+            let horasTrabalhadas = obterValor("horas");
+            let ganhoPorHora = obterValor("valorHora");
+            let custoMaterial = obterValor("material");
+            let frete = obterValor("frete");
+            let porcentagemLucro = obterValor("lucro");
+
+            let custoTotal = (horasTrabalhadas * ganhoPorHora) + custoMaterial + frete;
+
+            let precoVenda = custoTotal + (porcentagemLucro / 100) * custoTotal;
+
+            // Exibir o resultado
+            document.getElementById("resultado").innerHTML = `Preço de venda sugerido: R$ ${precoVenda.toFixed(2)}`;
+        }
+    </script>
+
+    <br><br>
+
+</body>
+</html>

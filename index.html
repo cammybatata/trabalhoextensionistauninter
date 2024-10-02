@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pagina Inicial</title>
+
+    <style>
+        body {
+            font-family: sans-serif;
+            background-color: rgb(249, 224, 227);
+            margin: 0; /* Remove margens padrão do body */
+            padding: 0; /* Remove preenchimento padrão do body */
+        }
+
+        .topo {
+            width: 100%;
+            height: 60px;   
+            border: 1px solid rgb(148, 16, 16); 
+            margin: 0;
+            padding: 0;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background-color: rgb(134, 18, 18);
+        }
+
+        ul li {
+            float: left;
+            color: aliceblue;
+            list-style-type: none;
+        }
+
+        .menu {
+            width: 33%;
+            padding-top: 5px;
+        }
+
+        .menu a {
+            height: 80px;
+            border: 1px solid white;
+            font-size: large;
+            justify-items: center;
+            text-align: center;
+        }
+
+        .menu a:hover {
+            background: rgb(136, 39, 39);
+            font-weight: bolder;
+        }
+
+        .valorizart {
+            width: 33%;
+            font-size: 30px;
+            text-align: center;
+            padding-top: 15px;
+            color: white;
+        }
+
+        .logo {
+            width: 33%;
+            text-align: end;
+            padding-top: 5px;
+        }
+
+        .barras {
+            width: 45px;
+        }
+
+        .gode {
+            position: fixed;
+            top: 25px;
+            left: 53.4%;
+            width: 40px;
+        }
+
+        .dropdown-menu {
+            position: relative;
+            top: 5px;
+            border: 1px solid rgb(255, 255, 255);
+            background-color: rgb(134, 18, 18);
+            box-shadow: 0 0 2px black;
+            display: none;
+        }
+
+        .dropdown-menu a {
+            display: block;
+            color: white;
+        }
+
+        .menu:hover .dropdown-menu {
+            display: block;
+        }
+
+        .head {
+            width: 100%;
+            height: 100px;
+            margin: 0px;
+            padding-left: 0px;
+            border: 1px solid rgb(255, 255, 255);
+            border-radius: 10px;
+            color: white;
+            font-family: sans-serif;
+            font-size: large;
+            text-align: center;
+            background-color: rgb(167, 71, 84);
+        }
+        .preco {
+            text-align: center;
+        }
+        .art {
+            width: 35%;
+            height: auto; /* Para manter a proporção da imagem */
+            margin-right: 20px; /* Margem direita aumentada para 20px */
+        }
+        
+        .inicio {
+            text-align: left; /* Para alinhar o texto à esquerda */
+            max-width: 60%; /* Limitar a largura do texto */
+            margin-left: 20px; /* Margem esquerda aumentada para 20px */
+            font-size: 20px;
+        }
+
+        .imgtxt {
+            background-color:rgb(255, 237, 239);
+            display: flex; /* Usar flexbox para alinhar imagem e texto */
+            align-items: center; /* Alinhamento vertical central */
+            margin: 20px; /* Espaço ao redor do container */
+            box-shadow: 1px 1px 4px black;
+        }
+    </style>
+</head>
+<body>
+
+    <ul class="topo">
+        <li class="menu">
+            <img class="barras" src="zbotãomenu.png">
+            <div class="dropdown-menu">
+                <a href="index.html">Inicio</a>
+                <a href="b.html">Desvalorização e a Inteligencia Artificial </a>
+                <a href="c.html">O eu posso cobrar?</a>
+                <a href="d.html">Precificador</a>
+            </div>
+        </li>
+        <li class="valorizart">ValorizArt</li>
+    </ul>
+
+    <br><br>
+
+    <div class="head">
+        <h1>Seja Muito Bem vindo!</h1>
+        <img class="gode" src="ygode.png.png">
+    </div>
+    
+    <h1 class="preco">&nbsp;&nbsp;&nbsp;Sua arte merece um preço justo! Vamos te ajudar a encontrar o ideal!</h1>
+    
+    <div class="imgtxt"> <!-- Container flexível para imagem e texto -->
+         <img class="art" src="xartista.webp" alt="Artista">
+         <p class="inicio">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Nos dias atuais, é difícil saber como precificar seus trabalhos, especialmente no mundo da arte. A saturação do mercado, a competição com a arte gerada por inteligência artificial e a desvalorização do trabalho criativo tornam essa tarefa ainda mais desafiadora. No entanto, estamos aqui para ajudar! Neste espaço, você encontrará dicas, ferramentas e recursos para entender melhor o valor da sua arte e como estabelecer preços justos que reflitam seu esforço, talento e originalidade. Vamos juntos encontrar o preço ideal para as suas criações!</p>
+    </div>
+   
+</body>
+</html>
